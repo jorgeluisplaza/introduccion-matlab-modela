@@ -19,8 +19,8 @@ a = 8 * (log(4 * x + 12) / log(5));
 % Se genera el grafico y se coloca nombre a los ejes 
 figure, plot(x, a, '*r');
 title('Funcion a(x) en el intervalo [0, 15π]');
-xlabel('Eje x');
-ylabel('Eje y');
+xlabel('x');
+ylabel('8log5(4x + 12)');
 
 % Se guarda la segunda funcion en b
 b = sin(6 * (log(x + 9) / log(2))) + cos(7 * (log(4*x + 32) / log(6)));
@@ -28,17 +28,24 @@ b = sin(6 * (log(x + 9) / log(2))) + cos(7 * (log(4*x + 32) / log(6)));
 % Se genera el grafico y se coloca nombre a los ejes
 figure, plot(x, b, '+g');
 title('Funcion b(x) en el intervalo [0, 15π]');
-xlabel('Eje x');
-ylabel('Eje y');
+xlabel('x');
+ylabel('sen(6(log2(x + 9))) + cos(7(log6(4x + 32)))');
+
+% Se agrega linea en el y = 0 para mejor visualizacion
+yline(0);
 
 % Se genera el grafico y se grafica la funcion a, se coloca el titulo
-figure, plot(x, a, '*r')
-title('Ambas funciones a(x) y b(x) en intervalo [0, 15π]')
+figure, plot(x, a, '*r');
+title('Ambas funciones a(x) y b(x) en intervalo [0, 15π]');
+xlabel('Eje x')
+ylabel('Eje y')
 
+% Se usa hold on para colocar otra funcion al grafico
 hold on
 
 % Se grafica la segunda funcion
 plot(x, b, '+g')
+legend('8log5(4x + 12)', 'sen(6(log2(x + 9))) + cos(7(log6(4x + 32)))')
 
 hold off
 
@@ -61,8 +68,26 @@ x = -10:10;
 % Se guarda la funcion en c
 c = 6 * exp(x+18);
 
-% Se genera el grafico y se coloca el titulo
-figure, plot(x, c);
+% Se genera el grafico escala normal y se coloca el titulo y ejes
+figure, plot(x, c, '--b');
+title('Funcion c(x) en intervalo [-10, 10]')
+xlabel('x')
+ylabel('6 * exp(x+18)')
+
+% Se muestra con grilla
+grid on
+
+
+% Se genera el grafico escala logaritmica, titulo y ejes
+figure, semilogy(x, c, '--r');
+title('Funcion c(x) escala logaritmica en [-10, 10]')
+xlabel('x')
+ylabel('6 * exp(x+18)')
+
+% Se muestra con grilla
+grid on
+
+
 
 
 
