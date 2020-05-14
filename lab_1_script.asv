@@ -101,7 +101,9 @@ i = input('ingrese la cantidad de iteraciones: ');
 t = input('ingrese la tolerancia: ');
 x0 = input('ingrese el valor inicial x0: ');
 
-newtonRaphson(str2sym(p),i,t,x0)
+syms x;
+
+raizSolucion=newtonRaphson(p,i,t,x0);
 
 function raizSolucion = newtonRaphson(polinomio,iteraciones,tolerancia,x0)         
     iteraciones = iteraciones-1;
