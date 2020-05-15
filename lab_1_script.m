@@ -96,13 +96,27 @@ grid on
 %Newton Raphson seran 4:  el polinomio, el numero maximo de iteraciones, el error a considerar 
 %y el valor inicial del algoritmo.
 
+
+% Se ingresan los parametros de entrada respectivos del Newton Rahpson de
+% una Variable
 p = input('ingrese el polinomio: ','s');
 i = input('ingrese la cantidad de iteraciones: ');
 t = input('ingrese la tolerancia: ');
 x0 = input('ingrese el valor inicial x0: ');
 
+% Se caste el polinomio y se ingresan los parametros
 newtonRaphson(str2sym(p),i,t,x0)
 
+
+%Entrada: Polinomio o funcion a evaluar y derivar, Numero de iteraciones
+%que tendra el algoritmo,la tolerancia o error minimo que tendra el
+%algoritmo y el valor inicial x0
+%Salida: La raiz Solución de la funcion
+%Funcionamiento: Esta funcion es de manera recursiva, donde en cada llamado
+%avanza una iteracion buscando el nuevo valor xn+1, en base al parametro de
+%entrada xn anterior, compara la tolerancia y la cantidad de iteraciones en
+%cada llamado, hasta que se cumpla una y termina el proceso de buscar la
+%aproximacion a la solicion mas exacta
 function raizSolucion = newtonRaphson(polinomio,iteraciones,tolerancia,x0)         
     iteraciones = iteraciones-1;
     syms x;

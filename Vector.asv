@@ -1,0 +1,39 @@
+
+%Crear un archivo .m que reciba como entrada un vector y despliegue por pantalla el resultado de la 
+%raiz cuadrada de la suma de los 4 elementos de mayor valor, menos el resultado de lasuma de la 
+%raiz cuadrada de los 4 elementos de menor valor.  Debe manejar el ingreso erroneo de los 
+%valores del vector y de la cantidad de elementos del vector.
+
+
+
+% Codigo de Input del vector
+%Se pide el vector reiteradamente en caso que no se ingrese uno correcto,
+%cuando se ingrese uno correcto se pasa al siguiente codigo de operacion
+flag=false;
+while flag==false
+vector = input('Ingrese el vector de Entrada: ');
+    n= length(vector);
+    % Se hace una validacion de que el largo del vector sea mayor a 4 y que los elementos internos sean numericos 
+    if n >= 4
+        aux=true;
+         for i=1:n
+            if isnumeric(vector(i))~=1
+                aux=false;
+            end
+         end 
+         if aux == true
+            flag = true;
+         end
+    end
+end
+
+% Codigo de manejo y operacion del vector
+% Aqui se obtienen los 4 mayores y 4 menores
+maxs = maxk(vector,4);
+mins = mink(vector,4);
+% Se calculan sus raices cuadradas
+A = sqrt(sum(maxs));
+B = sqrt(sum(mins));
+% Se 
+C = A-B
+    
